@@ -1,0 +1,63 @@
+/**app.wxss**/
+@import "weui.wxss";
+@import "/pages/template/zhiliao.wxss";
+page {
+  background-color: #ededed;
+  font-size: 32rpx;
+}
+.weui-media-box {
+  padding: 20rpx 30rpx;
+}
+/*问题列表  */
+.user {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15rpx;
+}
+.question {
+  
+}
+.logo {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 20rpx;
+}
+.nick {
+  font-size: 0.8em;
+  color: #009999;
+  font-weight: bold;
+}
+.time {
+  font-size: 0.7em;
+  color: #707070;
+}
+/*  输入框 */
+.ft {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 3333;
+  background-color: #F7F7FA;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 -5rpx 5rpx gainsboro;
+}
+.input{
+  border-bottom: 1px solid rgba(168,168,168,0.7);
+  width: calc(100% - 100rpx);
+  margin-right: 20rpx;
+  font-size: 1em;
+  padding: 5rpx 10rpx;
+}
+.send {
+  width: 60rpx;
+  height: 60rpx;
+}

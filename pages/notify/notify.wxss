@@ -1,0 +1,7 @@
+/* pages/notify/notify.wxss */
+page {
+  height: 100%;
+  text-align: center;
+  padding-top: 50rpx;
+  color: #C3C3C3;
+}

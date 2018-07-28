@@ -1,0 +1,21 @@
+<!--pages/register/register.wxml-->
+<import src="../template/zhiliao.wxml"/>
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="bd">
+  <view class="top">
+    <image src="/images/email.png" class="img"></image>
+    <input class="box" id="email" placeholder="请输入邮箱" bindfocus="showHint" bindinput="input" bindblur="checkout"/>
+    <view class="hint" style="color: {{ email.color }}">{{ email.hint }}</view>
+  </view>
+  <view class="middle">
+    <image src="/images/pwd.png" class="img"></image>
+    <input class="box" password id="pwd" placeholder="请输入密码" bindfocus="showHint" bindinput="input" bindblur="checkout"/>
+    <view class="hint" style="color: {{ pwd.color }}">{{ pwd.hint }}</view>
+  </view>
+  <view class="bottom">
+    <image src="/images/check.png" class="img"></image>
+    <input class="box" password id="check" placeholder="请确认密码" bindfocus="showHint" bindinput="input" bindblur="checkout"/>
+    <view class="hint" style="color: {{ check.color }}">{{ check.hint }}</view>
+  </view>
+</view>
+<button class="weui-btn btn" type="primary" style="background-color:#009999;" bindtap="submit">立即注册</button>

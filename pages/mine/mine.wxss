@@ -1,0 +1,16 @@
+/* pages/mine/mine.wxss */
+.page_hd {
+  margin-bottom: 20rpx;
+  padding: 40rpx 0 20rpx 0;
+  text-align: center;
+  background-color: #F7F7FA;
+}
+.user-avator{
+  width: 140rpx;
+  height: 140rpx;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}

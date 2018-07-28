@@ -1,0 +1,13 @@
+<!--pages/addQuestion/addQuestion.wxml-->
+<import src="../template/zhiliao.wxml"/>
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="weui-cells__title">我要发布</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请输入你的问题" style="height: 5em;" bindinput="inputQuestion" />
+      <view class="weui-textarea-counter">{{ length }}/200</view>
+    </view>
+  </view>
+</view>
+<button class="publish" bindtap="pub">一键发布</button>

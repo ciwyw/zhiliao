@@ -1,0 +1,10 @@
+/* pages/addQuestion/addQuestion.wxss */
+.publish {
+  width: 50%;
+  margin-top: 30rpx;
+  color: #fff;
+  background-color: #009999;
+}
+.publish:active {
+  filter: brightness(0.7) contrast(120%);
+}

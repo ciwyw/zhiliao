@@ -1,0 +1,23 @@
+<!--pages/exam/exam.wxml-->
+<view class="exam" wx:for="{{ exam }}" wx:key="{{ item.id }}">
+  <view class="weui-cells__title">{{ item.question }}</view>
+  <view class="weui-cells weui-cells_after-title option-block" style="border:0;">
+    <radio-group id="{{ index }}" bindchange="recodeChoice">
+      <label class="weui-cell weui-check__label">
+        <radio value="A" checked="{{ item.check == 'A' ? true :''}}" disabled="{{ item.disable }}" />{{ item.A }}
+      </label>
+      <label class="weui-cell weui-check__label">
+        <radio value="B" checked="{{ item.check == 'B' ? true :''}}" disabled="{{ item.disable }}" />{{ item.B }}
+      </label>
+      <label class="weui-cell weui-check__label">
+        <radio value="C" checked="{{ item.check == 'C' ? true :''}}" disabled="{{ item.disable }}" />{{ item.C }}
+      </label>
+      <label class="weui-cell weui-check__label">
+        <radio value="D" checked="{{ item.check == 'D' ? true :''}}" disabled="{{ item.disable }}" />{{ item.D }}
+      </label>
+    </radio-group>
+    <view wx:if="{{ item.result == 1 }}" class="right">* 正确</view>
+    <view wx:if="{{ item.result == 0 }}" class="error">* 错误 正确答案：{{ item.answer }}</view>
+  </view>
+</view>
+<button class="submit" bindtap="checkAnswer" disabled="{{ disable }}">提交</button>

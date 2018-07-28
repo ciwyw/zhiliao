@@ -1,0 +1,159 @@
+<!--pages/classInfo/classInfo.wxml-->
+<import src="../template/zhiliao.wxml"/>
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="bd">
+  <view class="weui-tab" style="background-color: #F7F7FA;">
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+        <view id="now" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ now ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">进行中</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !now }}">
+          <navigator url="../exam/exam?examId={{ item.id }}" class="weui-media-box weui-media-box_appmsg" style="padding:10px 30px;" hover-class="weui-cell_active" wx:for="{{ test }}"
+wx:key=" {{ item.id }} " wx:if="{{ item.state == 1 }}">
+            <view class="weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.name }}</view>
+                <view class="weui-media-box__desc">{{ item.time }}</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view id="unstart" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ unstart ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">未开始</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !unstart }}">
+          <view class="weui-media-box weui-media-box_appmsg" style="padding:10px 30px;" hover-class="weui-cell_active" wx:for="{{ test }}"
+wx:key=" {{ item.id }} " wx:if="{{ item.state == 0 }}">
+            <view class="weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.name }}</view>
+                <view class="weui-media-box__desc">{{ item.time }}</view>
+            </view>
+          </view>
+        </view>
+
+        <view id="end" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ end ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">已结束</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !end }}">
+          <navigator url="../exam/exam?examId={{ item.id }}" class="weui-media-box weui-media-box_appmsg" style="padding:10px 30px;" hover-class="weui-cell_active" wx:for="{{ test }}"
+wx:key=" {{ item.id }} " wx:if="{{ item.state == 2 }}">
+            <view class="weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.name }}</view>
+                <view class="weui-media-box__desc">{{ item.time }}</view>
+            </view>
+          </navigator>
+        </view>
+
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex !=1 }}">
+
+                <view id="ppt" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ ppt ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">PPT</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !ppt }}">
+          <navigator url="../download/download?url={{ item.url }}&name={{ item.courseware_name }}&logo={{ item.logo }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ list }}
+   wx:key=" {{ item.id }} " wx:if="{{ item.type == 'ppt' }}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+              <image class="weui-media-box__thumb" src="{{ item.logo }}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{ item.courseware_name }}</view>
+              <view class="weui-media-box__desc">{{ item.content }}</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view id="word" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ word ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">Word</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !word }}">
+          <navigator url="../download/download?url={{ item.url }}&name={{ item.courseware_name }}&logo={{ item.logo }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ list }}
+   wx:key=" {{ item.id }} " wx:if="{{ item.type == 'word' }}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+              <image class="weui-media-box__thumb" src="{{ item.logo }}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{ item.courseware_name }}</view>
+              <view class="weui-media-box__desc">{{ item.content }}</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view id="excel" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ excel ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">Excel</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !excel }}">
+          <navigator url="../download/download?url={{ item.url }}&name={{ item.courseware_name }}&logo={{ item.logo }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ list }}
+   wx:key=" {{ item.id }} "  wx:if="{{ item.type == 'excel' }}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+              <image class="weui-media-box__thumb" src="{{ item.logo }}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{ item.courseware_name }}</view>
+              <view class="weui-media-box__desc">{{ item.content }}</view>
+            </view>
+          </navigator>
+        </view>
+
+        <view id="resource" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ resource ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">扩展资源</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !resource }}">
+           <navigator url="../resource/resource?url={{ item.m_url }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ resourceList }}" wx:key=" {{ item.id }} ">
+           <image src="/images/go.png" style="width:20px; height:20px; margin-right:5px;"></image>
+            <view>{{ item.title }}</view>
+          </navigator>
+        </view>
+
+      </view>
+
+      <view class="weui-tab__content" hidden="{{activeIndex !=2 }}">
+        
+        <view id="classNow" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ classNow ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">正在上课</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !classNow }}">
+          <view class="weui-media-box weui-media-box_appmsg" style="padding:10px 30px;" hover-class="weui-cell_active" wx:for="{{ history }}"
+wx:key=" {{ item.id }} " wx:if="{{ item.status == 1 }}" bindtap="goOnline" data-id="{{ item.id }}">
+            <view class="weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.title }}</view>
+                <view class="weui-media-box__desc">{{ item.create_time }}</view>
+            </view>
+          </view>
+        </view>
+
+        <view id="classEnd" class="weui-panel__hd" bindtap="showList">
+          <image src="/images/detail.png" class="detail" style="{{ classEnd ? 'transform: rotate(90deg);transition: transform .2s linear 0s;' : ''}}"></image>
+          <view class="type">历史记录</view>
+        </view>
+        <view class="weui-panel__bd" hidden="{{ !classEnd }}">
+          <view class="weui-media-box weui-media-box_appmsg" style="padding:10px 30px;" hover-class="weui-cell_active" wx:for="{{ history }}"
+wx:key=" {{ item.id }} " wx:if="{{ item.status == 2 }}" bindtap="goOnline" data-id="{{ item.id }}">
+            <view class="weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.title }}</view>
+                <view class="weui-media-box__desc">{{ item.create_time }}</view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>

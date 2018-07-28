@@ -1,0 +1,23 @@
+/* pages/classInfo/classInfo.wxss */
+.weui-navbar__item.weui-bar__item_on {
+  color: #009999;
+}
+.weui-navbar__slider {
+  background-color: #009999;
+}
+.detail {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+.type {
+  color: #000;
+  display: inline-block;
+}
+.weui-panel__hd:active {
+  background-color: #ededed;
+}
+.weui-panel__hd {
+  padding: 20rpx 30rpx;
+  font-size: 1em;
+}

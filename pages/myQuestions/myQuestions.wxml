@@ -1,0 +1,10 @@
+<!--pages/myQuestions/myQuestions.wxml-->
+<view class="weui-panel__bd" style="background-color: #F7F7FA;" bindtouchstart="touchStart">
+  <view class="weui-media-box weui-media-box_appmsg touch-item {{ item.isTouchMove ? 'move' : ''}}" hover-class="weui-cell_active" wx:for="{{ list }}" wx:key="{{ item.id }}" bindtouchstart="touchStart" bindtouchend="touchEnd" data-index="{{ index }}">
+    <navigator url="../answerList/answerList?id={{ item.id }}" class="weui-media-box_text overflow">
+      <view class="weui-media-box__title weui-media-box__title_in-text">{{ item.question }}</view>
+      <view class="weui-media-box__desc">{{ item.time }}</view>
+    </navigator>
+    <view class="deleteBtn" bindtap="deleteQuestion" data-id="{{ item.id }}">删除</view>
+  </view>
+</view>

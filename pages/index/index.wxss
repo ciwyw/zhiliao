@@ -1,0 +1,51 @@
+/**index.wxss**/
+.img {
+  width: 100%;
+}
+.course {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20rpx;
+  color: #fff;
+  padding: 0 10rpx;
+  background-color: rgba(40,44,52,0.5);
+}
+.bd-desc {
+  height: 100rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #F7F7FA;
+  box-shadow: 0 0 5rpx 1rpx #707070;
+  padding: 5rpx 30rpx;
+  margin-bottom: 15rpx;
+  position: sticky;
+  top: 0;
+  z-index: 3333;
+}
+.bd-title {
+  font-size: 1.2em;
+  margin-right: 20rpx;
+}
+.bd-ask {
+  width: 70rpx;
+  height: 70rpx;
+}
+.bd-ask:active {
+  filter: brightness(0.7) contrast(120%);
+}
+.bd-content {
+  background-color: #F7F7FA;
+  margin-bottom: 10rpx;
+  padding: 20rpx 30rpx;
+}
+.bd-content:active {
+  background-color: #ededed;
+}
+.overflow { /* 多行文本溢出显示省略号 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

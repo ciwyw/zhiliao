@@ -1,0 +1,31 @@
+<!--pages/answerList/answerList.wxml-->
+<import src="../template/zhiliao.wxml"/>
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="hd">
+  <view class="user">
+    <image src="{{ info.avatar }}" class="logo"></image>
+    <view class="info">
+      <view class="nick">{{ info.wx_name }}</view>
+      <view class="time">{{ info.time }}</view>
+    </view>
+  </view>
+  <view class="question">{{ info.question }}</view>
+</view>
+<view class="bd">
+  <view class="panel" wx:for="{{ answer }}" wx:key="{{ item.id }}" bindlongpress="deleteAnswer" data-userid="{{ item.id }}" data-answerid="{{ item.answer_id }}">
+    <view class="user" style="margin-bottom: 0;">
+      <image src="{{ item.avatar }}" class="logo"></image>
+      <view class="info">
+        <view class="nick">{{ item.wx_name }}</view>
+        <view class="time">{{ item.time }}</view>
+      </view>
+    </view>
+    <view class="answer">{{ item.answer }}</view>
+  </view>
+  <view class="hint" wx:if="{{ noAnswer }}">还没有人回答喔，快来发表你的观点吧~</view>
+</view>
+<view class="ft">
+<input placeholder="我来回答..." class="input" bindinput="getValue" bindfocus="getFocus" bindblur="loseFocus" style="{{ focus ? 'border-bottom: 1px solid #009999;' : '' }}" value="{{ value }}" cursor-spacing="10"></input>
+<image src="/images/send.png" class="send" wx:if="{{ inputVal }}" bindtap="goAnswer"></image>
+<image src="/images/send1.png" class="send" wx:else></image>
+</view>

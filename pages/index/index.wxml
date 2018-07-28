@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<swiper class="hd" autoplay='true'>
+  <swiper-item wx:for="{{ newCourse }}" wx:key="{{ item.id }}">
+    <image src="{{ item.logo }}" class="img"></image>
+    <view class="course">{{ item.course_name }}</view>
+  </swiper-item>
+</swiper>
+<view class="bd">
+  <view class="bd-desc">
+    <view class="bd-title">知了校园</view>
+    <image src="/images/write.png" class="bd-ask" bindtap="addQuestion"></image>
+  </view>
+  <view class="bd-content" wx:for="{{ list }}" wx:key="item.id" bindtap="getAnswer" data-id="{{ item.id }}">
+    <view class="user">
+      <image src="{{ item.avatar }}" class="logo"></image>
+      <view class="info">
+        <view class="nick">{{ item.wx_name }}</view>
+        <view class="time">{{ item.time }}</view>
+      </view>
+    </view>
+    <view class="question overflow">{{ item.question }}</view>
+  </view>
+</view>

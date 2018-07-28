@@ -1,0 +1,7 @@
+<!--pages/information/informtion.wxml-->
+<view class="weui-footer">
+  <view class="weui-footer__links">
+    <navigator url="" class="weui-footer__link">让课堂变得有趣</navigator>
+  </view>
+  <view class="weui-footer__text">Copyright © 2018 虎牙</view>
+</view>

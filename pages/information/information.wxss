@@ -1,0 +1,4 @@
+/* pages/information/informtion.wxss */
+page {
+  padding-top: 300rpx;
+}

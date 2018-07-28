@@ -1,0 +1,63 @@
+<!--pages/class/class.wxml-->
+<import src="../template/zhiliao.wxml"/>
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="hd">
+  <view class="weui-search-bar">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜一搜" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜一搜</view>
+      </label>
+    </view>
+    <image class="scan" src="/images/scan.png" hidden="{{ inputShowed }}" bindtap="scan"></image>
+    <view class="weui-search-bar__cancel-btn" hidden="{{ !inputShowed }}" bindtap="hideInput">取消</view>
+  </view>
+  <view class="searchbar_over"></view>
+  <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+    <view class="serachbar-area">
+      <view wx:for="{{ filterList }}" wx:key="{{ item.id }}">
+        <navigator url="../classInfo/classInfo?id={{ item.id }}" class="weui-cell" hover-class="weui-cell_active">
+          <view class="weui-cell__bd">
+            <view>{{ item.course_name }}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-panel__bd" wx:if="{{ !noClass }}">
+  <navigator url="../classInfo/classInfo?id={{ item.id }}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{ classList }}
+   wx:key=" {{ item.id }} ">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+      <image class="weui-media-box__thumb " src="{{ item.logo }} " />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+      <view class="weui-media-box__title ">{{ item.course_name }}</view>
+      <view class="weui-media-box__desc ">{{ item.course_describe }}</view>
+    </view>
+  </navigator>
+</view>
+<view class="hint-bd" wx:else>
+  <image src="/images/sad.png" class="hint-img"></image>
+  <view>添加课程开启你的学习之旅吧~</view>
+</view>
+<image class="btn " src="/images/add.png " bindtap="invite" style="{{ addBtn ? 'filter: brightness(0.7) contrast(120%)' : ''}}"></image>
+<view class="modal" hidden="{{ !showAdd }}">
+  <view class="modal_dialog">
+    <view class="modal_title">添加课程</view>
+    <view class="modal_content">
+      <input type="number" maxlength="10 " class="modal_input" placeholder="请输入邀请码" bindinput="getValue"/>
+    </view>
+    <view class="modal_btn">
+      <view class="modal_cancel" bindtap="cancel" >取消</view>
+      <view class="modal_confirm" bindtap="confirm">确定</view>
+    </view>
+  </view>
+  </view>

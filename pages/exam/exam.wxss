@@ -1,0 +1,48 @@
+/* pages/exam/exam.wxss */
+.exam {
+  overflow: hidden;
+}
+.weui-cells__title {
+  color: #000;
+  font-size: 1em;
+}
+.submit {
+  margin: 30rpx 30%;
+  background-color: #009999;
+  color: #fff;
+  width: 40%;
+}
+.submit:active {
+  filter: brightness(0.7) contrast(120%);
+}
+.option-block {
+  margin: 0 30rpx;
+  background-color: transparent;
+}
+.weui-cells::after {
+  border-bottom: 0;
+}
+.weui-cell::before  {
+  border-top: 0;
+}
+.weui-cells::before {
+  border-top: 0;
+}
+.weui-cell {
+  padding: 10rpx 30rpx;
+  margin: 20rpx 0;
+  border: 1rpx solid #C0C0C0;
+  box-shadow: 4rpx 4rpx 4rpx -4rpx black;
+  border-radius: 40rpx;
+  background-color: #fff;
+}
+.right {
+  color: green;
+  font-size: 0.8em;
+  padding: 0 30rpx;
+}
+.error {
+  color: red;
+  font-size: 0.8em;
+  padding: 0 30rpx;
+}

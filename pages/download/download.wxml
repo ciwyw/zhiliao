@@ -1,0 +1,6 @@
+<!--pages/download/download.wxml-->
+<import src="../template/zhiliao.wxml" />
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<image src="{{ logo }}" class="file-img"></image>
+<view class="file-name">{{ name }}</view>
+<progress percent="{{ percent }}" show-info activeColor="#009999" backgroundColor="rgba(168,168,168,0.7)" active="true" active-mode="forwards" style="width: 95%;" />

@@ -1,0 +1,7 @@
+<!--pages/template/zhiliao.wxml-->
+<template name="Toast">
+  <view class="wxapp-toast-content-box" wx:if="{{isShowToast}}">            <view class="wxapp-toast-content">
+      <view class="wxapp-toast-content-text">{{ toastText }}</view>         </view>
+  </view>
+</template>
+

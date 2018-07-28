@@ -1,0 +1,19 @@
+<!--pages/onineCourse/onlineCourse.wxml-->
+<!-- pages/onlineCourse/onlineCourse.wxml -->
+<import src="../template/zhiliao.wxml" />
+<template is="Toast" data="{{ isShowToast,toastText }}"></template>
+<view class="hd">
+  <view class="hd-title">{{ historyInfo.title }}</view>
+  <image src="/images/on.png" class="hd-status" wx:if="{{ historyInfo.status == 1 }}"></image>
+  <image src="/images/end.png" class="hd-status" wx:else></image>
+</view>
+<scroll-view class="bd" scroll-y="true">
+  <view wx:for="{{ questionList }}" wx:key="{{ item.id }}" class="bd-content">{{ item.content }}</view>
+</scroll-view>
+<view class='hasSign'>签到成功</view>
+<view class="ft">
+  <image src="/images/question.png" class="ask" bindtap="pushUnknown"></image>
+  <input placeholder="发表你的问题..." class="input" bindinput="getValue" bindfocus="getFocus" bindblur="loseFocus" style="{{ focus ? 'border-bottom: 1px solid #009999;' : '' }}" value="{{ value }}" cursor-spacing="10"></input>
+  <image src="/images/send.png" class="send" wx:if="{{ inputVal }}" bindtap="pushQuestion"></image>
+  <image src="/images/send1.png" class="send" wx:else></image>
+</view>

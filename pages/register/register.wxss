@@ -1,0 +1,30 @@
+/* pages/register/register.wxss */
+page {
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20%;
+}
+.img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.box {
+  width: 400rpx;
+  display: inline-block;
+  border-bottom: 1rpx solid #707070;
+}
+.hint {
+  height: 0.7em;
+  line-height: 0.7em;
+  font-size: 0.7em;
+  margin: 0 0 20rpx 70rpx;
+}
+.btn {
+  width:50%;
+  height:80rpx;
+  line-height: 80rpx;
+}

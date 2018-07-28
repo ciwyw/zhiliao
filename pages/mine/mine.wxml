@@ -1,0 +1,26 @@
+<!--pages/mine/mine.wxml-->
+<view class="page">
+  <view class="page_hd">
+      <view class="user-avator" style="background-image:url('{{userInfo.avatarUrl}}')"></view>
+     <view class="user-nick">{{userInfo.nickName}}</view>  
+  </view>
+  <view class="page_bd">
+    <view class="weui-panel">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box_small-appmsg">
+                    <view class="weui-cells weui-cells_in-small-appmsg" style="background-color: #F7F7FA;">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{ list }}" wx:key="{{item.id}}" bindtap="goPage" data-url="{{ item.url }}">
+                            <view class="weui-cell__hd">
+                              <image src="{{ item.img }}" style="width: 20px;height: 20px;margin:5px 5px 0 0;" />
+                            </view>
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view>{{ item.use }}</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+  </view>
+</view>
